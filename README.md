@@ -7,8 +7,11 @@ Usage:
 python c2ada.py FILES 
 ```
 
-In order to resolve include dependencies,\nall files must be specified in one call."
-Example: `python c2ada.py main.c module.c module.h` or with `find`:
+In order to resolve include dependencies, all files must be specified in one call.
+
+Example: `python c2ada.py main.c module.c module.h` 
+
+or you can use `find` on a code directory:
 ```bash
 find . -type f -regex '.*\.\(c\|h\)' -exec python c2ada.py {} + 
 ```
@@ -19,10 +22,13 @@ It is only a helper script intended to reduce the manual translation effort.
 
 ## Translation Features:
 * keeps (and translates) all your comments
-* translation of C functions to Ada functions or procedures
-* translation of `enum`, `struct`
-* translation of `#define`
+* translates C functions to Ada functions or procedures
+* translates `enum`, `struct`
+* preprocessor `#define`
+* numbers: `0b10101010` -> `2#10101010#`
 
 ## Not working:
 * pointers
 * Array initialization
+* resolving comments between function signature and body
+* many other things
