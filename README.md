@@ -3,12 +3,15 @@ Python script that translates Ansi C to Ada.
 Translates .c and .h files to .adb and .ads files
 
 Usage:
-``` python c2ada.py FILES ```
+```bash
+python c2ada.py FILES 
+```
 
 In order to resolve include dependencies,\nall files must be specified in one call."
 Example: `python c2ada.py main.c module.c module.h` or with `find`:
-
-```find . -type f -regex '.*\.\(c\|h\)' -exec python c2ada.py {} + ```
+```bash
+find . -type f -regex '.*\.\(c\|h\)' -exec python c2ada.py {} + 
+```
 
 ## Note
 The script is based on regular expressions and will not properly parse C according to its specification!
